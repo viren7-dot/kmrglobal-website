@@ -643,3 +643,103 @@ details.faq p { margin: 1rem 0 0; color: var(--stone); }
 .mb-0 { margin-bottom: 0; }
 .text-stone { color: var(--stone); }
 .divider { height: 1px; background: var(--line); border: 0; margin: 3rem 0; }
+
+/* ===================================================================
+   Mobile refinements
+   Adapts proportions for phones rather than just shrinking the desktop
+   layout. Marker below prevents duplicate appends.
+   KMR-MOBILE-PASS-V1
+   =================================================================== */
+
+@media (max-width: 640px) {
+
+  /* Tighter vertical rhythm - desktop spacing made the page endless */
+  :root { --section-y: clamp(2.75rem, 9vw, 4rem); }
+  .section-title { margin-bottom: 2rem; }
+
+  /* Type sized for a phone, not a scaled-down desktop */
+  h1 { font-size: clamp(1.95rem, 8.5vw, 2.5rem); line-height: 1.12; }
+  h2 { font-size: clamp(1.55rem, 6.5vw, 2rem); }
+  h3 { font-size: 1.15rem; }
+  .lead { font-size: 1rem; }
+  .hero p.lead, .page-hero .lead { font-size: 1.02rem; }
+  .eyebrow { font-size: .7rem; letter-spacing: .18em; margin-bottom: .75rem; }
+
+  /* Hero: 4/5 portrait at full width was eating a whole screen height */
+  .hero { padding-top: 2.5rem; }
+  .hero-photo { aspect-ratio: 4/3; }
+  .hero-actions { gap: .65rem; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+
+  /* Interior imagery - same problem, same fix */
+  .section-image-tall { aspect-ratio: 4/3; }
+  .section-image { aspect-ratio: 16/10; }
+  .feature-image { aspect-ratio: 16/10; }
+  .page-hero { padding-bottom: 2rem; }
+
+  /* Brand marquee - card was taller than the viewport */
+  .brand-banner-slide { flex-basis: 268px; max-width: 268px; }
+  .brand-banner-track { gap: 1.25rem; }
+  .dist-card .dist-img { aspect-ratio: 16/11; }
+  .dist-card .dist-body { padding: 1.25rem; }
+  .dist-card h3 { font-size: 1.4rem; }
+  .dist-card .dist-country { margin-bottom: .75rem; }
+  .brand-logo-band { min-height: 64px; padding: 1rem .75rem; }
+  .brand-logo-band svg { max-width: 140px; }
+
+  /* Process steps - reclaim the 72px of left padding */
+  .step { padding-left: 0; padding-top: 2.6rem; }
+  .step::before { font-size: 1.85rem; top: 0; }
+
+  /* Trust strip - stop phrases breaking mid-word */
+  .trust-strip { padding: 1.1rem 0; }
+  .trust-strip .container { gap: .5rem 1rem; font-size: .68rem; letter-spacing: .14em; }
+
+  /* Cards, quotes, forms */
+  .card { padding: 1.35rem; }
+  .card .icon { width: 42px; height: 42px; margin-bottom: .9rem; }
+  .form-card { padding: 1.25rem; }
+  .quote { padding: 1.35rem; }
+  .quote p { font-size: 1.05rem; margin: 1.1rem 0 1rem; }
+  .quote::before { font-size: 2.6rem; top: .2rem; left: .7rem; }
+
+  /* Audience cards */
+  .audience-card { padding: 1.5rem; min-height: 0; }
+  .audience-card h3 { font-size: 1.35rem; }
+  .audience-card .btn { width: 100%; justify-content: center; }
+
+  /* Stats and logo grids read better 2-up than stretched 1-up */
+  .stats { grid-template-columns: 1fr 1fr; gap: 1.25rem; padding: 1.75rem 0; }
+  .stat-num { font-size: 2rem; }
+  .retailer-strip { grid-template-columns: 1fr 1fr; }
+  .retailer-strip > div { min-height: 78px; padding: 1.1rem .75rem; }
+  .wholesale-logo-grid { grid-template-columns: 1fr 1fr; }
+  .wholesale-logo-grid > div { min-height: 96px; padding: 1.1rem .75rem; }
+
+  /* CTA band */
+  .cta-band { padding: 2.25rem 1.25rem; }
+  .cta-band .btn { width: 100%; justify-content: center; }
+
+  /* Comfortable tap targets */
+  .nav-toggle { width: 46px; height: 46px; }
+  .footer-col a, .footer-bottom a { display: inline-block; padding: .2rem 0; }
+
+  /* 16px minimum stops iOS Safari zooming the page on field focus */
+  .form-field input,
+  .form-field select,
+  .form-field textarea { font-size: 16px; }
+}
+
+/* Very narrow phones */
+@media (max-width: 400px) {
+  .brand-banner-slide { flex-basis: 240px; max-width: 240px; }
+  .stats { grid-template-columns: 1fr; }
+  .trust-strip .container { font-size: .64rem; }
+}
+
+/* An infinitely scrolling banner can trigger vestibular discomfort */
+@media (prefers-reduced-motion: reduce) {
+  .brand-banner-track { animation: none; }
+  html { scroll-behavior: auto; }
+  .card, .dist-card, .audience-card { transition: none; }
+}
