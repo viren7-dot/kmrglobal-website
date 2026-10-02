@@ -621,7 +621,7 @@ details.faq p { margin: 1rem 0 0; color: var(--stone); }
 /* ---------- Retailer logo strip ---------- */
 .retailer-strip {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  /* KMR-STRIP-GRID */ grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 1px;
   background: var(--line);
   border-top: 1px solid var(--line);
