@@ -501,6 +501,8 @@ details.faq p { margin: 1rem 0 0; color: var(--stone); }
 .footer-col h4 { color: var(--ivory); font-family: var(--font-sans); font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 1.25rem; }
 .footer-col ul { display: grid; gap: .65rem; }
 .footer-col a { color: rgba(246,250,249,.72); font-size: .95rem; }
+/* KMR-FOOTER-LI - address is plain <li> text, so it missed the <a> styling */
+.footer-col li { font-size: .95rem; color: rgba(246,250,249,.72); line-height: 1.55; }
 .footer-col a:hover { color: var(--rose-gold); }
 .footer-bottom { padding-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; font-size: .85rem; color: rgba(246,250,249,.55); }
 .footer-bottom a { color: rgba(246,250,249,.55); }
